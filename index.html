@@ -32,6 +32,7 @@
 
 
             <button id="btn" style="height: 30px; width: 100px; margin-left: 700px; margin-top: 20px;" >Fetch Api's</button>
+            <button id="clear" style="height: 40px; width: 100px; margin-left: 700px; margin-top: 40px ;">Clear Repo-list</button>
 
 
         </div>
@@ -47,7 +48,7 @@
     </footer>
 
     <script>
-
+        var clear = document.querySelector("#clear");
         var btn = document.getElementById("btn");
         var repolist = document.querySelector("ul");
 
@@ -82,9 +83,20 @@
 
         }
 
+        function clearfield(){
+
+            repolist.textContent = " "
+
+            return;
+
+        }
 
 
       btn.addEventListener("click",  getapi);
+      clear.addEventListener("click", clearfield);
+
+
+    
 
 
     </script>
