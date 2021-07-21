@@ -1,0 +1,93 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repository Fetcher</title>
+</head>
+<body>
+    <header style="background-color:aqua ; height: 150px;">
+
+        <h1 style="text-align: center; padding-top: 70px; ">API Fetcher!</h1>
+
+
+    </header>
+    <section>
+
+        <div style=" background-color: rgb(102, 119, 119); height: 600px; padding-top: 75px;">  
+
+            <h2 style="text-align: center; color: white; font-size: 40px;">Repositories</h2>
+            <fieldset style="display: block; border: black dotted 3px ; height: 400px; width: 800px; margin-left: auto; margin-right: auto;">
+
+
+                <div>
+                    <ul>  </ul>
+                </div>
+
+
+
+
+
+            </fieldset>
+
+
+            <button id="btn" style="height: 30px; width: 100px; margin-left: 700px; margin-top: 20px;" >Fetch Api's</button>
+
+
+        </div>
+            
+
+    </section>
+    <footer style="display: block; background-color: aqua; height: 100px;">
+
+     
+
+
+
+    </footer>
+
+    <script>
+
+        var btn = document.getElementById("btn");
+        var repolist = document.querySelector("ul");
+
+
+        function getapi(){
+
+            fetch('https://api.github.com/users/castedcrown84/repos')
+            .then(function(response){
+
+                return response.json();
+
+
+            })
+            .then(function(data){
+
+                for(var i = 0; i < data.length; i++){
+
+                    var listitem = document.createElement('li');
+                    listitem.textContent = data[i].html_url;
+                    repolist.appendChild(listitem);
+                    console.log(listitem.textContent)
+
+
+
+
+                }
+
+
+            })
+            
+
+
+        }
+
+
+
+      btn.addEventListener("click",  getapi);
+
+
+    </script>
+    
+</body>
+</html>
